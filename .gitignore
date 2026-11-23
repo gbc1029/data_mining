@@ -1,0 +1,14 @@
+# Python environment and caches
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Runtime artifacts created by the app
+.runtime/
+chroma_db/
+data/
+*.log
+
+# Local secrets
+.env

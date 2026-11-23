@@ -1,0 +1,111 @@
+term,display_name,level,community_label,explain
+politics,Politics,2,社会科学与公共治理,研究权力分配、制度与公共决策的学科领域
+gene,Gene,2,生物学与基因组学,遗传信息的基本单位，决定性状并可遗传
+population,Population,2,医学与公共卫生,某一范围内的个体总和，用于统计与流行病学研究
+cognition,Cognition,2,心理学与认知科学,人获取、加工和使用信息的心理过程
+disease,Disease,2,医学与公共卫生,机体结构或功能异常的状态
+corporate governance,Corporate governance,2,社会科学与公共治理,股东、董事会与管理层之间的权责安排
+tectonics,Tectonics,2,地质学与地球物理,研究岩石圈变形与板块运动的学科
+cancer,Cancer,2,医学与公共卫生,细胞异常增殖并可能扩散的疾病统称
+sustainability,Sustainability,2,环境与可持续能源,在满足当代需求的同时不损害后代的发展能力
+alternative medicine,Alternative medicine,2,医学与公共卫生,不属于主流西医的诊疗方法集合
+software,Software,2,计算机与信息科学,让计算机执行任务的程序与数据集合
+ecosystem,Ecosystem,2,环境与可持续能源,生物群落与其环境相互作用形成的整体
+deep learning,Deep learning,2,语言学与自然语言处理,用多层神经网络自动学习特征的方法
+composite number,Composite number,2,材料与电化学,除了1和自身外还能被其他整数整除的数
+climate change,Climate change,2,环境与可持续能源,气候统计特征长期显著改变的现象
+artificial neural network,Artificial neural network,2,计算机与信息科学,模仿神经元连接方式的计算模型
+china,China,2,社会科学与公共治理,本图数据中作为研究对象的国家实体
+democracy,Democracy,3,社会科学与公共治理,由人民参与决定公共事务的政治制度
+electrode,Electrode,2,材料与电化学,电化学反应中发生电子转移的导体
+catalysis,Catalysis,2,材料与电化学,用少量物质加速反应而自身不被消耗的过程
+quantum,Quantum,2,物理与天体物理,描述微观粒子行为的物理量单位与概念
+social media,Social media,2,计算机与信息科学,用户生产并分享内容的网络平台
+greenhouse gas,Greenhouse gas,2,环境与可持续能源,吸收并再辐射热辐射、导致升温的气体
+metaphysics,Metaphysics,2,分析哲学与科学哲学,研究存在、因果等最基本问题的哲学分支
+inequality,Inequality,2,社会科学与公共治理,资源、收入或机会在群体间分布不均
+perception,Perception,2,心理学与认知科学,对外界刺激进行组织和解释的心理过程
+polymer,Polymer,2,材料与电化学,由重复单元连接而成的大分子
+biodiversity,Biodiversity,2,环境与可持续能源,物种、基因与生态系统层面的多样程度
+human geography,Human geography,2,环境与可持续能源,研究人类活动的空间分布与地域差异
+algebra over a field,Algebra over a field,2,数学与数值计算,以域为标量、带乘法结构的向量空间
+electrochemistry,Electrochemistry,3,材料与电化学,研究电与化学反应相互转化的学科
+medline,MEDLINE,2,医学与公共卫生,美国国立医学图书馆的生物医学文献数据库
+graphene,Graphene,2,材料与电化学,单层碳原子组成的二维材料，导电性极强
+public health,Public health,2,医学与公共卫生,通过群体干预预防疾病、延长寿命
+encyclopedia,Encyclopedia,2,计算机与信息科学,系统汇集各领域知识的参考工具
+genome,Genome,3,生物学与基因组学,一个生物体全部遗传物质的总和
+applied linguistics,Applied linguistics,2,语言学与自然语言处理,用语言学理论解决语言教学等实际问题
+convolutional neural network,Convolutional neural network,2,计算机视觉与信号处理,用卷积核提取局部特征的神经网络
+immune system,Immune system,2,生物学与基因组学,识别并清除病原体的身体防御系统
+voltage,Voltage,2,材料与电化学,两点之间的电势差，驱动电流
+renewable energy,Renewable energy,2,环境与可持续能源,可自然补充、不会枯竭的能源
+urbanization,Urbanization,2,环境与可持续能源,人口向城市集聚、城市空间扩张的过程
+ideology,Ideology,3,心理学与认知科学,系统化的价值信念，影响政治判断
+social capital,Social capital,2,社会科学与公共治理,通过社会网络与信任获得的资源
+pollution,Pollution,2,环境与可持续能源,有害物质进入环境并造成损害
+epidemiology,Epidemiology,2,医学与公共卫生,研究疾病在人群中的分布与影响因素
+colonialism,Colonialism,2,社会科学与公共治理,一国对另一地区实行控制与剥削的制度
+ecosystem services,Ecosystem services,3,环境与可持续能源,生态系统为人类提供的各类惠益
+land use,Land use,2,环境与可持续能源,人类对土地用途的安排与改造
+computational linguistics,Computational linguistics,2,语言学与自然语言处理,用计算方法处理和分析语言
+corrosion,Corrosion,2,材料与电化学,材料与环境反应导致的渐进破坏
+agriculture,Agriculture,2,环境与可持续能源,种植作物与饲养畜禽的生产活动
+the internet,The Internet,2,计算机与信息科学,全球互联的计算机网络基础设施
+personality,Personality,2,心理学与认知科学,个体稳定的行为与思维倾向
+aerospace,Aerospace,2,材料与电化学,大气层内外飞行器与相关技术
+metamaterial,Metamaterial,2,材料与电化学,通过人工结构获得非常规性质的材料
+photonics,Photonics,2,材料与电化学,研究光子的产生、传输与控制
+robot,Robot,2,材料与电化学,可感知环境并执行动作的自动化装置
+urban planning,Urban planning,2,环境与可持续能源,对城市空间与功能布局的设计
+citation,Citation,2,计算机与信息科学,文献之间相互参考形成的关系
+diabetes mellitus,Diabetes mellitus,2,医学与公共卫生,血糖长期偏高的代谢性疾病
+entrepreneurship,Entrepreneurship,2,社会科学与公共治理,识别机会并组织资源创建新事业
+incentive,Incentive,2,社会科学与公共治理,促使个体采取某种行为的机制
+carbon fibers,Carbon fibers,3,材料与电化学,含碳量高、强度大的纤维材料
+genomics,Genomics,4,生物学与基因组学,对基因组进行测序与分析
+electron,Electron,2,物理与天体物理,带负电的基本粒子
+structural basin,Structural basin,2,地质学与地球物理,地壳沉降形成的大型凹陷
+contemporary philosophy,Contemporary philosophy,2,分析哲学与科学哲学,20世纪以来形成的哲学思潮
+philosophy of science,Philosophy of science,2,分析哲学与科学哲学,研究科学方法、知识与进步
+molecule,Molecule,2,材料与电化学,由原子通过化学键结合的最小单元
+superconductivity,Superconductivity,2,材料与电化学,低温下电阻完全消失的现象
+cosmology,Cosmology,2,物理与天体物理,研究宇宙起源、结构与演化
+architecture,Architecture,2,人文艺术与历史,设计与建造建筑空间的学科
+historiography,Historiography,2,人文艺术与历史,研究历史书写方法与史料
+phonology,Phonology,2,语言学与自然语言处理,研究语言的语音系统与规则
+syntax,Syntax,2,语言学与自然语言处理,研究词语组合成句的规则
+analytic philosophy,Analytic philosophy,3,分析哲学与科学哲学,以语言与逻辑分析为核心的哲学传统
+robotics,Robotics,3,材料与电化学,研究机器人设计、控制与感知
+sustainable development,Sustainable development,2,环境与可持续能源,兼顾经济、社会与环境的长期发展
+big data,Big data,2,环境与可持续能源,规模巨大、需要专门技术处理的数据集
+graph,Graph,2,数学与数值计算,由顶点和边组成的数学结构
+clinical trial,Clinical trial,2,医学与公共卫生,在人体上检验干预效果的研究
+health care,Health care,2,医学与公共卫生,疾病预防、治疗与照护的服务体系
+monetary policy,Monetary policy,2,金融与货币政策,央行调节货币供给与利率的政策
+scholarship,Scholarship,2,社会科学与公共治理,系统性的知识生产与文献工作
+human resource management,Human resource management,2,社会科学与公共治理,组织中人员的招聘、培训与激励
+soil water,Soil water,2,环境与可持续能源,存在于土壤孔隙中的水分
+visualization,Visualization,2,生物学与基因组学,用图形直观呈现数据
+psychological intervention,Psychological intervention,2,医学与公共卫生,针对心理问题的系统性治疗措施
+international relations,International relations,3,社会科学与公共治理,国家间互动与全球治理
+supply chain,Supply chain,2,社会科学与公共治理,从原料到交付的上下游网络
+thin film,Thin film,2,材料与电化学,厚度极薄的材料层
+semiconductor,Semiconductor,2,材料与电化学,导电性介于导体与绝缘体之间的材料
+proteomics,Proteomics,3,生物学与基因组学,大规模研究蛋白质组成与功能
+pragmatics,Pragmatics,2,语言学与自然语言处理,研究语境中的语言使用
+sociolinguistics,Sociolinguistics,2,语言学与自然语言处理,研究语言与社会的关系
+volcano,Volcano,2,地质学与地球物理,岩浆喷出地表形成的地质构造
+financial market,Financial market,2,金融与货币政策,资金借贷与证券交易的场所
+game theory,Game theory,2,社会科学与公共治理,研究理性主体策略互动的数学工具
+nanomaterials,Nanomaterials,2,材料与电化学,至少一维处于纳米尺度的材料
+air pollution,Air pollution,2,环境与可持续能源,有害物质进入大气造成的污染
+corpus linguistics,Corpus linguistics,2,语言学与自然语言处理,基于大规模语料库的语言研究
+stratigraphy,Stratigraphy,3,地质学与地球物理,研究岩层顺序与年代关系
+signal processing,Signal processing,3,计算机视觉与信号处理,对信号进行滤波、变换与特征提取
+supply chain management,Supply chain management,3,社会科学与公共治理,对供应链各环节的协调与优化
+conflict resolution,Conflict resolution,2,社会科学与公共治理,化解对立、达成协议的过程与方法
+federalism,Federalism,3,社会科学与公共治理,中央与地方分权的国家结构
+mechatronics,Mechatronics,2,材料与电化学,机械、电子与控制技术结合的工程领域
+habitat,Habitat,2,环境与可持续能源,生物生存所需的特定环境
+linear algebra,Linear algebra,2,数学与数值计算,研究向量、矩阵与线性变换的学科

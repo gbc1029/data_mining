@@ -1,0 +1,17 @@
+﻿community_id,label,size,avg_level,generic_ratio,specific_ratio,tier,top_concepts
+1,社会科学与公共治理,367,2.16,0.13,0.24,basic,Politics | Corporate governance | Key (lock) | China | Democracy | State (computer science)
+2,材料与电化学,300,2.13,0.16,0.27,basic,Process (computing) | Power (physics) | Composite number | Electrode | Catalysis | Work (physics)
+3,环境与可持续能源,236,2.29,0.15,0.33,basic,Perspective (graphical) | Sustainability | Ecosystem | Climate change | Greenhouse gas | Quality (philosophy)
+4,计算机与信息科学,163,2.15,0.1,0.2,basic,Set (abstract data type) | Software | Artificial neural network | Subject (documents) | Social media | Encyclopedia
+5,生物学与基因组学,150,2.52,0.11,0.47,basic,Gene | Function (biology) | Genome | Immune system | Genomics | Sample (material)
+6,数学与数值计算,140,2.01,0.12,0.13,subfield,Field (mathematics) | Algebra over a field | Calculus (dental) | Topology (electrical circuits) | Benchmark (surveying) | Graph
+7,医学与公共卫生,134,2.24,0.2,0.35,subfield,Population | Disease | Cancer | Alternative medicine | MEDLINE | Public health
+8,物理与天体物理,112,2.14,0.12,0.22,subfield,Quantum | Electron | Cosmology | Space (punctuation) | Molecular dynamics | Theory of relativity
+9,心理学与认知科学,106,2.17,0.11,0.25,subfield,Cognition | Perception | Ideology | Personality | Identification (biology) | Phenomenology (philosophy)
+10,人文艺术与历史,83,1.95,0.18,0.14,subfield,Architecture | Historiography | The arts | Identity (music) | Musicology | Narrative
+11,语言学与自然语言处理,74,2.2,0.07,0.2,subfield,Context (archaeology) | Deep learning | Variety (cybernetics) | Applied linguistics | Meaning (existential) | Computational linguistics
+12,地质学与地球物理,70,2.3,0.14,0.39,subfield,Tectonics | Interpretation (philosophy) | Structural basin | Volcano | Stratigraphy | Plate tectonics
+13,计算机视觉与信号处理,57,2.18,0.09,0.25,subfield,Image (mathematics) | Pattern recognition (psychology) | Convolutional neural network | Signal processing | Inference | Photography
+14,金融与货币政策,46,2.17,0.11,0.22,niche,Monetary policy | Financial market | Stock (firearms) | Asset (computer security) | Interest rate | Volatility (finance)
+15,网络通信与热力学,21,2.19,0.14,0.19,niche,Entropy (arrow of time) | Resilience (materials science) | Component (thermodynamics) | Non-equilibrium thermodynamics | Psychological resilience | Routing (electronic design automation)
+16,分析哲学与科学哲学,17,2.47,0.0,0.47,niche,Metaphysics | Contemporary philosophy | Philosophy of science | Analytic philosophy | Philosophy of mind | Western philosophy

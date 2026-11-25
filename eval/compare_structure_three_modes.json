@@ -1,0 +1,527 @@
+{
+ "板块构造近五年有哪些研究进展？": {
+  "novice": {
+   "status": "generated",
+   "papers": 5,
+   "ids": [
+    "ZEJCOENCRTdGRkU",
+    "ZEJCOEJFRkFHQzg",
+    "ZEJCOEM5OUJEN0Y",
+    "ZEJCOEM4QkVEOUM",
+    "ZEJCOENDRjlEREE"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "C12 地质学与地球物理（subfield）",
+    "expand": "学术检索词 plate tectonics、lithosphere、subduction",
+    "retrieve": "召回 147 篇 → 检查 16 篇相关性 → 保留 5 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "plate tectonics",
+     "lithosphere",
+     "subduction"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "basic"
+    ],
+    "relaxations": [],
+    "recalled": 147,
+    "eligible": 5,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 16,
+    "screening_status": "passed"
+   }
+  },
+  "intermediate": {
+   "status": "generated",
+   "papers": 10,
+   "ids": [
+    "ZEJCOENCRTdGRkU",
+    "ZEJCOENFREU5Rzk",
+    "ZEJCOEM4R0VGQ0I",
+    "ZEJCOENEOEQ4Qjc",
+    "ZEJCOENFOTdBRUU",
+    "ZEJCOEJFRkFHQzg",
+    "ZEJCOEM5OUJEN0Y",
+    "ZEJCOEI3N0VEREU",
+    "ZEJCOEM5REI4Rzg",
+    "ZEJCOENBRkQ3RTk"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "C12 地质学与地球物理（subfield）",
+    "expand": "学术检索词 plate tectonics、lithosphere、subduction、mantle",
+    "retrieve": "召回 193 篇 → 检查 20 篇相关性 → 保留 10 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "plate tectonics",
+     "lithosphere",
+     "subduction",
+     "mantle"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "basic",
+     "subfield"
+    ],
+    "relaxations": [],
+    "recalled": 193,
+    "eligible": 20,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 20,
+    "screening_status": "passed"
+   }
+  },
+  "expert": {
+   "status": "generated",
+   "papers": 12,
+   "ids": [
+    "ZEJCOENFRUVHQ0M",
+    "ZEJCOENFREU5Rzk",
+    "ZEJCOEFCODhBRTg",
+    "ZEJCOENFREVDNzk",
+    "ZEJCOEI5OENCODk",
+    "ZEJCOEFFR0Q3REE",
+    "ZEJCOEI5OENERjk",
+    "ZEJCOENDQ0dCRzg",
+    "ZEJCOENBN0JGQUY",
+    "ZEJCOEM3RUU5QkY",
+    "ZEJCOEJDRTlCRkI",
+    "ZEJCOENFRUVGRTk"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "C12 地质学与地球物理（subfield）",
+    "expand": "学术检索词 plate tectonics、volcanology、volcanism、lava、volcano、structural basin",
+    "retrieve": "召回 289 篇 → 检查 24 篇相关性 → 保留 12 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "plate tectonics",
+     "volcanology",
+     "volcanism",
+     "lava",
+     "volcano",
+     "structural basin"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "subfield",
+     "niche"
+    ],
+    "relaxations": [],
+    "recalled": 289,
+    "eligible": 24,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 24,
+    "screening_status": "passed"
+   }
+  }
+ },
+ "RAG 近五年有哪些研究进展": {
+  "novice": {
+   "status": "generated",
+   "papers": 8,
+   "ids": [
+    "ZEJCOEM4RERDQ0M",
+    "ZEJCOENCQ0JFQUQ",
+    "ZEJCOENEQzlEOUM",
+    "ZEJCOEM5Rjg3OEI",
+    "ZEJCOENERDhGRkM",
+    "ZEJCOEM5OEJHOTc",
+    "ZEJCOEM5RURFQUQ",
+    "ZEJCOENFOTdHQTg"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 RAG · 时间 2022–2026 · 研究概况",
+    "community": "图中没有可靠匹配 · 已转为 Acemap 主题检索",
+    "expand": "学术检索词 rag",
+    "retrieve": "召回 50 篇 → 检查 16 篇相关性 → 保留 8 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "rag"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [],
+    "relaxations": [],
+    "recalled": 50,
+    "eligible": 16,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 16,
+    "screening_status": "passed"
+   }
+  },
+  "intermediate": {
+   "status": "generated",
+   "papers": 10,
+   "ids": [
+    "ZEJCOEM4RERDQ0M",
+    "ZEJCOENCQ0JFQUQ",
+    "ZEJCOENEQzlEOUM",
+    "ZEJCOEM5Rjg3OEI",
+    "ZEJCOENERDhGRkM",
+    "ZEJCOEM5OEJHOTc",
+    "ZEJCOEM5RURFQUQ",
+    "ZEJCOENFOTdHQTg",
+    "ZEJCOENCOUZCOUc",
+    "ZEJCOENERDk5Qzk"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 RAG · 时间 2022–2026 · 研究概况",
+    "community": "图中没有可靠匹配 · 已转为 Acemap 主题检索",
+    "expand": "学术检索词 rag",
+    "retrieve": "召回 50 篇 → 检查 20 篇相关性 → 保留 10 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "rag"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [],
+    "relaxations": [],
+    "recalled": 50,
+    "eligible": 20,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 20,
+    "screening_status": "passed"
+   }
+  },
+  "expert": {
+   "status": "generated",
+   "papers": 12,
+   "ids": [
+    "ZEJCOEM4RERDQ0M",
+    "ZEJCOENCQ0JFQUQ",
+    "ZEJCOENEQzlEOUM",
+    "ZEJCOEM5Rjg3OEI",
+    "ZEJCOENERDhGRkM",
+    "ZEJCOEM5OEJHOTc",
+    "ZEJCOEM5RURFQUQ",
+    "ZEJCOENFOTdHQTg",
+    "ZEJCOENCOUZCOUc",
+    "ZEJCOENERDk5Qzk",
+    "ZEJCOENERkNFRkc",
+    "ZEJCOEM5RTc3OEY"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 RAG · 时间 2022–2026 · 研究概况",
+    "community": "图中没有可靠匹配 · 已转为 Acemap 主题检索",
+    "expand": "学术检索词 rag",
+    "retrieve": "召回 50 篇 → 检查 24 篇相关性 → 保留 12 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "rag"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [],
+    "relaxations": [],
+    "recalled": 50,
+    "eligible": 24,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 24,
+    "screening_status": "passed"
+   }
+  }
+ },
+ "气候变化近五年有哪些研究进展": {
+  "novice": {
+   "status": "generated",
+   "papers": 8,
+   "ids": [
+    "ZEJCOENFRUY3Rjc",
+    "ZEJCOENFRURHRUM",
+    "ZEJCOENFRUdCREE",
+    "ZEJCOENFRUdHNzc",
+    "ZEJCOENFRUc4QUQ",
+    "ZEJCOENFRUZGRjg",
+    "ZEJCOENFRUdFQUc",
+    "ZEJCOENFRjdDOUU"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 climate change · 时间 2022–2026 · 研究概况",
+    "community": "C03 环境与可持续能源（basic）",
+    "expand": "学术检索词 climate change、biogeochemical cycle、climate model",
+    "retrieve": "召回 133 篇 → 检查 16 篇相关性 → 保留 8 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "climate change",
+     "biogeochemical cycle",
+     "climate model"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "basic"
+    ],
+    "relaxations": [],
+    "recalled": 133,
+    "eligible": 13,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 16,
+    "screening_status": "passed"
+   }
+  },
+  "intermediate": {
+   "status": "generated",
+   "papers": 10,
+   "ids": [
+    "ZEJCOENFRjdER0E",
+    "ZEJCOENFRUY3Rjc",
+    "ZEJCOENFRURHRUM",
+    "ZEJCOENFQUJDQUE",
+    "ZEJCOENFRUdCREE",
+    "ZEJCOENFRUdHNzc",
+    "ZEJCOENFRUc4QUQ",
+    "ZEJCOENFRUVEN0c",
+    "ZEJCOENFRUVGQzg",
+    "ZEJCOENFRUZGRjg"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 climate change · 时间 2022–2026 · 研究概况",
+    "community": "C03 环境与可持续能源（basic）",
+    "expand": "学术检索词 climate change、biogeochemical cycle、climate model、global warming",
+    "retrieve": "召回 178 篇 → 检查 20 篇相关性 → 保留 10 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "climate change",
+     "biogeochemical cycle",
+     "climate model",
+     "global warming"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "basic",
+     "subfield"
+    ],
+    "relaxations": [],
+    "recalled": 178,
+    "eligible": 19,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 20,
+    "screening_status": "passed"
+   }
+  },
+  "expert": {
+   "status": "generated",
+   "papers": 9,
+   "ids": [
+    "ZEJCOENFRjdER0E",
+    "ZEJCOENFQUJDQUE",
+    "ZEJCOENFRUdHNzc",
+    "ZEJCOENFRUZGRjg",
+    "ZEJCOENFRjc4Qjk",
+    "ZEJCOENFREE3REI",
+    "ZEJCOENFRUVHRzg",
+    "ZEJCOENFRUFDRkE",
+    "ZEJCOENFRUVCOUI"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 climate change · 时间 2022–2026 · 研究概况",
+    "community": "C03 环境与可持续能源（basic）",
+    "expand": "学术检索词 climate change、production、consumption、sustainable development、quality、pollution",
+    "retrieve": "召回 297 篇 → 检查 24 篇相关性 → 保留 9 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "climate change",
+     "production",
+     "consumption",
+     "sustainable development",
+     "quality",
+     "pollution"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "subfield",
+     "niche"
+    ],
+    "relaxations": [],
+    "recalled": 297,
+    "eligible": 9,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 24,
+    "screening_status": "passed"
+   }
+  }
+ }
+}

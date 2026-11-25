@@ -1,0 +1,144 @@
+{
+ "N1": {
+  "status": "generated",
+  "papers": 1,
+  "top3": [
+   "The Nature of the Lithosphere‐"
+  ],
+  "warnings": 0
+ },
+ "N2": {
+  "status": "generated",
+  "papers": 8,
+  "top3": [
+   "Retrieval-Augmented Generation",
+   "Retrieval-Augmented Generation",
+   "A Survey on Retrieval-Augmente"
+  ],
+  "warnings": 0
+ },
+ "N3": {
+  "status": "generated",
+  "papers": 1,
+  "top3": [
+   "SUBDUCTION ZONES"
+  ],
+  "warnings": 0
+ },
+ "N4": {
+  "status": "generated",
+  "papers": 5,
+  "top3": [
+   "Climate Change 2013 – The Phys",
+   "Climate Change 2021 – The Phys",
+   "Climate Change 2021—The Physic"
+  ],
+  "warnings": 0
+ },
+ "N5": {
+  "status": "generated",
+  "papers": 8,
+  "top3": [
+   "Plate Tectonics and the Evolut",
+   "Plate tectonics in the late Pa",
+   "Initiation and Evolution of Pl"
+  ],
+  "warnings": 0
+ },
+ "I1": {
+  "status": "generated",
+  "papers": 10,
+  "top3": [
+   "Rapid propagation of subductio",
+   "Changes in Motion of the Nazca",
+   "Fragmented Plates in Sumatra-A"
+  ],
+  "warnings": 0
+ },
+ "I2": {
+  "status": "generated",
+  "papers": 10,
+  "top3": [
+   "Quality Prediction of RAG Syst",
+   "P-RAG: Prompt-Enhanced Paramet",
+   "BẢO MẬT AN TOÀN DỮ LIỆU TRONG "
+  ],
+  "warnings": 0
+ },
+ "I3": {
+  "status": "generated",
+  "papers": 6,
+  "top3": [
+   "The effect of temperature on f",
+   "On Urban Sustainability: Urban",
+   "From Fibre Basket to Fibre Boi"
+  ],
+  "warnings": 0
+ },
+ "I4": {
+  "status": "generated",
+  "papers": 4,
+  "top3": [
+   "Evidence for Caribbean Plate S",
+   "Giant Porphyry Copper Deposits",
+   "Genesis of Early Cretaceous Ma"
+  ],
+  "warnings": 0
+ },
+ "I5": {
+  "status": "generated",
+  "papers": 3,
+  "top3": [
+   "nablaColors: A 3D Benchmark fo",
+   "Siamese Graph Neural Networks ",
+   "Accelerated Data‐Driven Discov"
+  ],
+  "warnings": 0
+ },
+ "E1": {
+  "status": "generated",
+  "papers": 8,
+  "top3": [
+   "From Plate Tectonics to Microb",
+   "Geodynamic controls on slab wi",
+   "Volcanism and long-term seismi"
+  ],
+  "warnings": 0
+ },
+ "E2": {
+  "status": "generated",
+  "papers": 12,
+  "top3": [
+   "Quality Prediction of RAG Syst",
+   "P-RAG: Prompt-Enhanced Paramet",
+   "BẢO MẬT AN TOÀN DỮ LIỆU TRONG "
+  ],
+  "warnings": 0
+ },
+ "E3": {
+  "status": "insufficient_evidence",
+  "papers": 0,
+  "top3": [],
+  "warnings": 0
+ },
+ "E4": {
+  "status": "generated",
+  "papers": 4,
+  "top3": [
+   "The effect of temperature on f",
+   "Heat Exposure and the Risk of ",
+   "Diverse Combined Land‐Atmosphe"
+  ],
+  "warnings": 0
+ },
+ "E5": {
+  "status": "generated",
+  "papers": 12,
+  "top3": [
+   "Metappuccino: Large Language M",
+   "Assessing the Capabilities of ",
+   "Large Language Model Empowered"
+  ],
+  "warnings": 0
+ }
+}

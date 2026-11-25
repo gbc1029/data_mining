@@ -1,0 +1,11 @@
+{
+ "question": "板块构造近五年有哪些研究进展？",
+ "mode": "expert",
+ "note": "LLM mocked; structural retrieval only",
+ "first_paper_ids": [
+  "ZEJCOENFRUVHQ0M",
+  "ZEJCOENFRUVHQ0M",
+  "ZEJCOENFRUVHQ0M"
+ ],
+ "all_identical": true
+}

@@ -1,0 +1,268 @@
+[
+ {
+  "question": "板块构造近五年有哪些研究进展？",
+  "mode": "novice",
+  "interests": [],
+  "baseline": false,
+  "terms": [
+   {
+    "term": "plate tectonics",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "lithosphere",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "subduction",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ },
+ {
+  "question": "板块构造近五年有哪些研究进展？",
+  "mode": "intermediate",
+  "interests": [],
+  "baseline": false,
+  "terms": [
+   {
+    "term": "plate tectonics",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "lithosphere",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "subduction",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "mantle",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ },
+ {
+  "question": "板块构造近五年有哪些研究进展？",
+  "mode": "expert",
+  "interests": [],
+  "baseline": false,
+  "terms": [
+   {
+    "term": "plate tectonics",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "volcanology",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "volcanism",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "lava",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "volcano",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "structural basin",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ },
+ {
+  "question": "板块构造近五年有哪些研究进展？",
+  "mode": "expert",
+  "interests": [
+   12
+  ],
+  "baseline": false,
+  "terms": [
+   {
+    "term": "plate tectonics",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "volcanology",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "volcanism",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "lava",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "volcano",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "structural basin",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ },
+ {
+  "question": "RAG 近五年有哪些研究进展",
+  "mode": "novice",
+  "interests": [],
+  "baseline": false,
+  "terms": [
+   {
+    "term": "rag",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ },
+ {
+  "question": "RAG 近五年有哪些研究进展",
+  "mode": "expert",
+  "interests": [],
+  "baseline": false,
+  "terms": [
+   {
+    "term": "rag",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ },
+ {
+  "question": "气候变化近五年有哪些研究进展",
+  "mode": "novice",
+  "interests": [],
+  "baseline": false,
+  "terms": [
+   {
+    "term": "climate change",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "biogeochemical cycle",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "climate model",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ },
+ {
+  "question": "气候变化近五年有哪些研究进展",
+  "mode": "expert",
+  "interests": [],
+  "baseline": false,
+  "terms": [
+   {
+    "term": "climate change",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "production",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "consumption",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "sustainable development",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "quality",
+    "size": 50,
+    "order_by": "publication_date"
+   },
+   {
+    "term": "pollution",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ },
+ {
+  "question": "板块构造近五年有哪些研究进展？",
+  "mode": "expert",
+  "interests": [],
+  "baseline": true,
+  "terms": [
+   {
+    "term": "plate tectonics",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ },
+ {
+  "question": "RAG 近五年有哪些研究进展",
+  "mode": "expert",
+  "interests": [],
+  "baseline": true,
+  "terms": [
+   {
+    "term": "rag",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ },
+ {
+  "question": "气候变化近五年有哪些研究进展",
+  "mode": "expert",
+  "interests": [],
+  "baseline": true,
+  "terms": [
+   {
+    "term": "climate change",
+    "size": 50,
+    "order_by": "publication_date"
+   }
+  ],
+  "missing": []
+ }
+]

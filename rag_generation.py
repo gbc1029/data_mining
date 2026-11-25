@@ -20,6 +20,18 @@ class GenerationError(RuntimeError):
     """The generation service could not produce a usable answer."""
 
 
+class TruncatedOutput(GenerationError):
+    """The reply hit max_tokens before finishing; a larger budget or retry may succeed."""
+
+
+def _temperature() -> float:
+    # Deterministic decoding by default; override only for deliberate experiments.
+    try:
+        return float(os.getenv("GRAPHRAG_LLM_TEMPERATURE", "0"))
+    except ValueError:
+        return 0.0
+
+
 def _chat(messages: list[dict[str, str]], max_tokens: int) -> str:
     base_url = os.getenv("GRAPHRAG_LLM_BASE_URL", _DASHSCOPE_URL).strip().rstrip("/")
     model = os.getenv("GRAPHRAG_LLM_MODEL", _DEFAULT_MODEL).strip()
@@ -32,10 +44,12 @@ def _chat(messages: list[dict[str, str]], max_tokens: int) -> str:
     payload = {
         "model": model,
         "messages": messages,
-        "temperature": 0.1,
+        "temperature": _temperature(),
         "max_tokens": max_tokens,
     }
-    if base_url == _DASHSCOPE_URL and model == _DEFAULT_MODEL:
+    # Disable chain-of-thought for all DashScope models: reasoning tokens are
+    # not part of the structured answer and would consume paid quota.
+    if base_url == _DASHSCOPE_URL:
         payload["enable_thinking"] = False
 
     try:
@@ -56,7 +70,9 @@ def _chat(messages: list[dict[str, str]], max_tokens: int) -> str:
         content = choice["message"]["content"]
     except (KeyError, IndexError, TypeError, ValueError):
         raise GenerationError("生成服务返回了无法读取的内容。") from None
-    if not isinstance(content, str) or not content.strip() or choice.get("finish_reason") == "length":
+    if choice.get("finish_reason") == "length":
+        raise TruncatedOutput("生成服务输出被长度上限截断。")
+    if not isinstance(content, str) or not content.strip():
         raise GenerationError("生成服务未返回完整文本。")
     return content.strip()
 
@@ -126,10 +142,15 @@ def select_relevant_evidence(
             for number, (title, passage) in enumerate(evidence, 1)
         ],
     }
-    raw = _chat([
+    messages = [
         {"role": "system", "content": system},
         {"role": "user", "content": json.dumps(data, ensure_ascii=False)},
-    ], max_tokens=128)
+    ]
+    try:
+        raw = _chat(messages, max_tokens=256)
+    except TruncatedOutput:
+        # One retry with a larger budget; the answer is a short JSON object.
+        raw = _chat(messages, max_tokens=512)
     fence = _JSON_FENCE.fullmatch(raw)
     try:
         result = json.loads(fence[1] if fence else raw)
@@ -165,7 +186,7 @@ def resolve_search_topic(question: str, *, overview: bool = False) -> tuple[str,
     raw = _chat([
         {"role": "system", "content": system},
         {"role": "user", "content": json.dumps({"question": question}, ensure_ascii=False)},
-    ], max_tokens=120)
+    ], max_tokens=240)
     fence = _JSON_FENCE.fullmatch(raw)
     try:
         result = json.loads(fence[1] if fence else raw)
@@ -230,14 +251,14 @@ def generate_conclusion(prompt: str, citation_count: int, *, overview: bool = Fa
         + output_format
     )
     messages = [{"role": "system", "content": system}, {"role": "user", "content": user_message}]
-    answer = _chat(messages, max_tokens=650)
+    answer = _chat(messages, max_tokens=900)
     if conclusion := _format_conclusion(answer, citation_count):
         return conclusion
     messages.extend([
         {"role": "assistant", "content": answer},
         {"role": "user", "content": "请重写并检查句数与引文编号。" + output_format},
     ])
-    conclusion = _format_conclusion(_chat(messages, max_tokens=650), citation_count)
+    conclusion = _format_conclusion(_chat(messages, max_tokens=900), citation_count)
     if conclusion is None:
         raise GenerationError("回答未通过引文格式校验。")
     return conclusion
@@ -258,7 +279,7 @@ def translate_topic(topic: str) -> str:
             ),
         },
         {"role": "user", "content": topic},
-    ], max_tokens=80).strip("\"'`“”").rstrip(".").strip()
+    ], max_tokens=160).strip("\"'`“”").rstrip(".").strip()
     if "\n" in translated or _CJK.search(translated) or not re.search(r"[A-Za-z]", translated):
         raise GenerationError("未能将主题转换为英文检索词。")
     return translated

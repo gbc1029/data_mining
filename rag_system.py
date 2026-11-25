@@ -10,7 +10,7 @@ import re
 import requests
 
 import graph_api
-from AcemapPilot.acemap import fetch
+from AcemapPilot.acemap import SnapshotMissing, fetch
 from evidence_index import get_index
 from intent_parser import parse_intent
 from modes import DEFAULT_MODE, resolve
@@ -83,15 +83,28 @@ def _live_papers(term, size, *, order_by=None):
         return fetch(term, size=size, save=False, order_by=order_by)
 
 
+def _failure_reason(exc):
+    if isinstance(exc, SnapshotMissing):
+        return "离线快照缺失"
+    if isinstance(exc, requests.HTTPError) and exc.response is not None:
+        return f"HTTP {exc.response.status_code}"
+    if isinstance(exc, requests.ConnectionError):
+        return "连接中断"
+    if isinstance(exc, requests.Timeout):
+        return "请求超时"
+    return type(exc).__name__
+
+
 def _collect(terms, paper_source, order_by):
-    papers, failed = {}, []
+    papers, failed, reasons = {}, [], {}
     for term in terms:
         try:
             rows = paper_source(term, PAGE_SIZE, order_by=order_by)
             if not isinstance(rows, list):
                 raise ValueError("Invalid Acemap results")
-        except (requests.RequestException, ValueError, KeyError):
+        except (requests.RequestException, ValueError, KeyError) as exc:
             failed.append(term)
+            reasons[term] = _failure_reason(exc)
             continue
         for row in rows:
             if not isinstance(row, dict) or not row.get("id"):
@@ -101,7 +114,8 @@ def _collect(terms, paper_source, order_by):
             if not existing.get("abstract") and row.get("abstract"):
                 papers[paper_id] = row
     if terms and len(failed) == len(terms):
-        raise SearchError("Acemap 暂未返回有效响应，请稍后重试。")
+        detail = "；".join(f"{term}：{reasons[term]}" for term in failed[:3])
+        raise SearchError(f"Acemap 暂未返回有效响应，请稍后重试。（{detail}）")
     return list(papers.values()), failed
 
 
@@ -309,7 +323,13 @@ def enhanced_retrieve(question, mode=DEFAULT_MODE, interests=(), *, baseline=Fal
     year_rows = [row for row in rows if row.get("publication_year")
                  and years[0] <= row["publication_year"] <= years[1]] if years else rows
     candidates = [paper for row in year_rows if (paper := _paper(row, use_graph=not baseline))]
-    passages = get_index().search(semantic_query, candidates) if candidates else {}
+    try:
+        passages = get_index().search(semantic_query, candidates) if candidates else {}
+    except Exception as exc:
+        raise SearchError(
+            "向量模型未就绪（sentence-transformers/all-MiniLM-L6-v2）。"
+            f"请检查 HF_HOME 指向的缓存目录。{type(exc).__name__}"
+        ) from exc
     screened_count = 0
     screening_status = "not_run"
     if passages and not baseline:

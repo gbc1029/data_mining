@@ -1,0 +1,16 @@
+id,mode,question,interests
+N1,novice,板块构造是什么,
+N2,novice,RAG 是什么,
+N3,novice,subduction 是什么,
+N4,novice,气候变化有哪些基础概念,
+N5,novice,what is plate tectonics,
+I1,intermediate,板块构造近五年有哪些研究进展,
+I2,intermediate,RAG 近五年有哪些研究进展,
+I3,intermediate,气候变化近五年有哪些研究进展,
+I4,intermediate,subduction zone 近五年的研究进展,
+I5,intermediate,graph neural network 近五年的研究进展,
+E1,expert,板块构造近五年有哪些研究进展,12
+E2,expert,RAG 近五年有哪些研究进展,
+E3,expert,subduction zone 近五年有哪些综述论文,
+E4,expert,climate change 近五年的最新进展,
+E5,expert,large language model 近五年的研究趋势,

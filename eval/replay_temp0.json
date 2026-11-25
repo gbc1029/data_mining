@@ -1,0 +1,290 @@
+{
+ "run1": {
+  "N1": {
+   "status": "generated",
+   "papers": 1,
+   "top3": [
+    "The Nature of the Lithosp"
+   ],
+   "warn": []
+  },
+  "N2": {
+   "status": "generated",
+   "papers": 8,
+   "top3": [
+    "Retrieval-Augmented Gener",
+    "Retrieval-Augmented Gener",
+    "A Survey on Retrieval-Aug"
+   ],
+   "warn": []
+  },
+  "N3": {
+   "status": "generated",
+   "papers": 1,
+   "top3": [
+    "SUBDUCTION ZONES"
+   ],
+   "warn": []
+  },
+  "N4": {
+   "status": "generated",
+   "papers": 8,
+   "top3": [
+    "Climate Change 2013 – The",
+    "Climate Change 2022 – Imp",
+    "Climate Change 2014 - Syn"
+   ],
+   "warn": []
+  },
+  "N5": {
+   "status": "generated",
+   "papers": 2,
+   "top3": [
+    "SUBDUCTION ZONES",
+    "The Nature of the Lithosp"
+   ],
+   "warn": []
+  },
+  "I1": {
+   "status": "generated",
+   "papers": 10,
+   "top3": [
+    "Rapid propagation of subd",
+    "Changes in Motion of the ",
+    "Fragmented Plates in Suma"
+   ],
+   "warn": []
+  },
+  "I2": {
+   "status": "generated",
+   "papers": 10,
+   "top3": [
+    "Quality Prediction of RAG",
+    "P-RAG: Prompt-Enhanced Pa",
+    "BẢO MẬT AN TOÀN DỮ LIỆU T"
+   ],
+   "warn": []
+  },
+  "I3": {
+   "status": "generated",
+   "papers": 5,
+   "top3": [
+    "The effect of temperature",
+    "On Urban Sustainability: ",
+    "From Fibre Basket to Fibr"
+   ],
+   "warn": []
+  },
+  "I4": {
+   "status": "generated",
+   "papers": 4,
+   "top3": [
+    "Evidence for Caribbean Pl",
+    "Giant Porphyry Copper Dep",
+    "Genesis of Early Cretaceo"
+   ],
+   "warn": []
+  },
+  "I5": {
+   "status": "generated",
+   "papers": 3,
+   "top3": [
+    "nablaColors: A 3D Benchma",
+    "Siamese Graph Neural Netw",
+    "Accelerated Data‐Driven D"
+   ],
+   "warn": []
+  },
+  "E1": {
+   "status": "generated",
+   "papers": 8,
+   "top3": [
+    "From Plate Tectonics to M",
+    "Geodynamic controls on sl",
+    "Volcanism and long-term s"
+   ],
+   "warn": []
+  },
+  "E2": {
+   "status": "generated",
+   "papers": 12,
+   "top3": [
+    "Quality Prediction of RAG",
+    "P-RAG: Prompt-Enhanced Pa",
+    "BẢO MẬT AN TOÀN DỮ LIỆU T"
+   ],
+   "warn": []
+  },
+  "E3": {
+   "status": "insufficient_evidence",
+   "papers": 0,
+   "top3": [],
+   "warn": []
+  },
+  "E4": {
+   "status": "generated",
+   "papers": 4,
+   "top3": [
+    "The effect of temperature",
+    "Heat Exposure and the Ris",
+    "Diverse Combined Land‐Atm"
+   ],
+   "warn": []
+  },
+  "E5": {
+   "status": "generated",
+   "papers": 12,
+   "top3": [
+    "Metappuccino: Large Langu",
+    "Assessing the Capabilitie",
+    "Large Language Model Empo"
+   ],
+   "warn": []
+  }
+ },
+ "run2": {
+  "N1": {
+   "status": "generated",
+   "papers": 1,
+   "top3": [
+    "The Nature of the Lithosp"
+   ],
+   "warn": []
+  },
+  "N2": {
+   "status": "generated",
+   "papers": 8,
+   "top3": [
+    "Retrieval-Augmented Gener",
+    "Retrieval-Augmented Gener",
+    "A Survey on Retrieval-Aug"
+   ],
+   "warn": []
+  },
+  "N3": {
+   "status": "unavailable",
+   "papers": 1,
+   "top3": [
+    "SUBDUCTION ZONES"
+   ],
+   "warn": [
+    "回答未通过引文格式校验。"
+   ]
+  },
+  "N4": {
+   "status": "generated",
+   "papers": 8,
+   "top3": [
+    "Climate Change 2013 – The",
+    "Climate Change 2022 – Imp",
+    "Climate Change 2014 - Syn"
+   ],
+   "warn": []
+  },
+  "N5": {
+   "status": "generated",
+   "papers": 2,
+   "top3": [
+    "SUBDUCTION ZONES",
+    "The Nature of the Lithosp"
+   ],
+   "warn": []
+  },
+  "I1": {
+   "status": "generated",
+   "papers": 10,
+   "top3": [
+    "Rapid propagation of subd",
+    "Changes in Motion of the ",
+    "Fragmented Plates in Suma"
+   ],
+   "warn": []
+  },
+  "I2": {
+   "status": "generated",
+   "papers": 10,
+   "top3": [
+    "Quality Prediction of RAG",
+    "P-RAG: Prompt-Enhanced Pa",
+    "BẢO MẬT AN TOÀN DỮ LIỆU T"
+   ],
+   "warn": []
+  },
+  "I3": {
+   "status": "generated",
+   "papers": 5,
+   "top3": [
+    "The effect of temperature",
+    "On Urban Sustainability: ",
+    "From Fibre Basket to Fibr"
+   ],
+   "warn": []
+  },
+  "I4": {
+   "status": "generated",
+   "papers": 4,
+   "top3": [
+    "Evidence for Caribbean Pl",
+    "Giant Porphyry Copper Dep",
+    "Genesis of Early Cretaceo"
+   ],
+   "warn": []
+  },
+  "I5": {
+   "status": "generated",
+   "papers": 3,
+   "top3": [
+    "nablaColors: A 3D Benchma",
+    "Siamese Graph Neural Netw",
+    "Accelerated Data‐Driven D"
+   ],
+   "warn": []
+  },
+  "E1": {
+   "status": "generated",
+   "papers": 8,
+   "top3": [
+    "From Plate Tectonics to M",
+    "Geodynamic controls on sl",
+    "Volcanism and long-term s"
+   ],
+   "warn": []
+  },
+  "E2": {
+   "status": "generated",
+   "papers": 12,
+   "top3": [
+    "Quality Prediction of RAG",
+    "P-RAG: Prompt-Enhanced Pa",
+    "BẢO MẬT AN TOÀN DỮ LIỆU T"
+   ],
+   "warn": []
+  },
+  "E3": {
+   "status": "insufficient_evidence",
+   "papers": 0,
+   "top3": [],
+   "warn": []
+  },
+  "E4": {
+   "status": "generated",
+   "papers": 3,
+   "top3": [
+    "The effect of temperature",
+    "Heat Exposure and the Ris",
+    "Diverse Combined Land‐Atm"
+   ],
+   "warn": []
+  },
+  "E5": {
+   "status": "generated",
+   "papers": 12,
+   "top3": [
+    "Metappuccino: Large Langu",
+    "Assessing the Capabilitie",
+    "Large Language Model Empo"
+   ],
+   "warn": []
+  }
+ }
+}

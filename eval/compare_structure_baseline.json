@@ -1,0 +1,437 @@
+{
+ "板块构造近五年有哪些研究进展？": {
+  "enhanced": {
+   "status": "generated",
+   "papers": 12,
+   "ids": [
+    "ZEJCOENFRUVHQ0M",
+    "ZEJCOENFREU5Rzk",
+    "ZEJCOEFCODhBRTg",
+    "ZEJCOENFREVDNzk",
+    "ZEJCOEI5OENCODk",
+    "ZEJCOEFFR0Q3REE",
+    "ZEJCOEI5OENERjk",
+    "ZEJCOENDQ0dCRzg",
+    "ZEJCOENBN0JGQUY",
+    "ZEJCOEM3RUU5QkY",
+    "ZEJCOEJDRTlCRkI",
+    "ZEJCOENFRUVGRTk"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "C12 地质学与地球物理（subfield）",
+    "expand": "学术检索词 plate tectonics、volcanology、volcanism、lava、volcano、structural basin",
+    "retrieve": "召回 289 篇 → 检查 24 篇相关性 → 保留 12 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "plate tectonics",
+     "volcanology",
+     "volcanism",
+     "lava",
+     "volcano",
+     "structural basin"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "subfield",
+     "niche"
+    ],
+    "relaxations": [],
+    "recalled": 289,
+    "eligible": 24,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 24,
+    "screening_status": "passed"
+   }
+  },
+  "baseline": {
+   "status": "generated",
+   "papers": 12,
+   "ids": [
+    "ZEJCOENFRUVHQ0M",
+    "ZEJCOENFREVDNzk",
+    "ZEJCOENFQ0NHN0E",
+    "ZEJCOENFRDlBNzk",
+    "ZEJCOENFREU5Rzk",
+    "ZEJCOENFOUJCRUM",
+    "ZEJCOENFOUE3REY",
+    "ZEJCOENFQjhDOUQ",
+    "ZEJCOENFQThCR0E",
+    "ZEJCOENFQUc5Qjk",
+    "ZEJCOENFQTdGN0c",
+    "ZEJCOENFOUJGQkI"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "纯 Acemap 基线",
+    "expand": "学术检索词 plate tectonics",
+    "retrieve": "召回 50 篇 → 保留 12 篇"
+   },
+   "retrieval": {
+    "baseline": true,
+    "terms": [
+     "plate tectonics"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [],
+    "relaxations": [],
+    "recalled": 50,
+    "eligible": 22,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 0,
+    "screening_status": "not_run"
+   }
+  },
+  "same_set": false,
+  "only_enhanced": [
+   "ZEJCOEFCODhBRTg",
+   "ZEJCOEFFR0Q3REE",
+   "ZEJCOEI5OENCODk",
+   "ZEJCOEI5OENERjk",
+   "ZEJCOEJDRTlCRkI",
+   "ZEJCOEM3RUU5QkY",
+   "ZEJCOENBN0JGQUY",
+   "ZEJCOENDQ0dCRzg",
+   "ZEJCOENFRUVGRTk"
+  ],
+  "only_baseline": [
+   "ZEJCOENFOUE3REY",
+   "ZEJCOENFOUJCRUM",
+   "ZEJCOENFOUJGQkI",
+   "ZEJCOENFQ0NHN0E",
+   "ZEJCOENFQTdGN0c",
+   "ZEJCOENFQThCR0E",
+   "ZEJCOENFQUc5Qjk",
+   "ZEJCOENFQjhDOUQ",
+   "ZEJCOENFRDlBNzk"
+  ],
+  "recall_gain_count": 9
+ },
+ "RAG 近五年有哪些研究进展": {
+  "enhanced": {
+   "status": "generated",
+   "papers": 12,
+   "ids": [
+    "ZEJCOEM4RERDQ0M",
+    "ZEJCOENCQ0JFQUQ",
+    "ZEJCOENEQzlEOUM",
+    "ZEJCOEM5Rjg3OEI",
+    "ZEJCOENERDhGRkM",
+    "ZEJCOEM5OEJHOTc",
+    "ZEJCOEM5RURFQUQ",
+    "ZEJCOENFOTdHQTg",
+    "ZEJCOENCOUZCOUc",
+    "ZEJCOENERDk5Qzk",
+    "ZEJCOENERkNFRkc",
+    "ZEJCOEM5RTc3OEY"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 RAG · 时间 2022–2026 · 研究概况",
+    "community": "图中没有可靠匹配 · 已转为 Acemap 主题检索",
+    "expand": "学术检索词 rag",
+    "retrieve": "召回 50 篇 → 检查 24 篇相关性 → 保留 12 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "rag"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [],
+    "relaxations": [],
+    "recalled": 50,
+    "eligible": 24,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 24,
+    "screening_status": "passed"
+   }
+  },
+  "baseline": {
+   "status": "generated",
+   "papers": 12,
+   "ids": [
+    "ZEJCOENFRUVDRkc",
+    "ZEJCOENFOUNHQUM",
+    "ZEJCOENFOEZDOUM",
+    "ZEJCOENERkNFRkc",
+    "ZEJCOENFOTdHQTg",
+    "ZEJCOENFOTc3QkU",
+    "ZEJCOENEQzlEOUM",
+    "ZEJCOENEQjhCREE",
+    "ZEJCOENDRDc5REQ",
+    "ZEJCOENDQkI3QkI",
+    "ZEJCOENCREM4Qkc",
+    "ZEJCOENCQ0JFQUQ"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 RAG · 时间 2022–2026 · 研究概况",
+    "community": "纯 Acemap 基线",
+    "expand": "学术检索词 rag",
+    "retrieve": "召回 50 篇 → 保留 12 篇"
+   },
+   "retrieval": {
+    "baseline": true,
+    "terms": [
+     "rag"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [],
+    "relaxations": [],
+    "recalled": 50,
+    "eligible": 27,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 0,
+    "screening_status": "not_run"
+   }
+  },
+  "same_set": false,
+  "only_enhanced": [
+   "ZEJCOEM4RERDQ0M",
+   "ZEJCOEM5OEJHOTc",
+   "ZEJCOEM5RTc3OEY",
+   "ZEJCOEM5RURFQUQ",
+   "ZEJCOEM5Rjg3OEI",
+   "ZEJCOENCOUZCOUc",
+   "ZEJCOENERDhGRkM",
+   "ZEJCOENERDk5Qzk"
+  ],
+  "only_baseline": [
+   "ZEJCOENCREM4Qkc",
+   "ZEJCOENDQkI3QkI",
+   "ZEJCOENDRDc5REQ",
+   "ZEJCOENEQjhCREE",
+   "ZEJCOENFOEZDOUM",
+   "ZEJCOENFOTc3QkU",
+   "ZEJCOENFOUNHQUM",
+   "ZEJCOENFRUVDRkc"
+  ],
+  "recall_gain_count": 8
+ },
+ "气候变化近五年有哪些研究进展": {
+  "enhanced": {
+   "status": "generated",
+   "papers": 9,
+   "ids": [
+    "ZEJCOENFRjdER0E",
+    "ZEJCOENFQUJDQUE",
+    "ZEJCOENFRUdHNzc",
+    "ZEJCOENFRUZGRjg",
+    "ZEJCOENFRjc4Qjk",
+    "ZEJCOENFREE3REI",
+    "ZEJCOENFRUVHRzg",
+    "ZEJCOENFRUFDRkE",
+    "ZEJCOENFRUVCOUI"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 climate change · 时间 2022–2026 · 研究概况",
+    "community": "C03 环境与可持续能源（basic）",
+    "expand": "学术检索词 climate change、production、consumption、sustainable development、quality、pollution",
+    "retrieve": "召回 297 篇 → 检查 24 篇相关性 → 保留 9 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "climate change",
+     "production",
+     "consumption",
+     "sustainable development",
+     "quality",
+     "pollution"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "subfield",
+     "niche"
+    ],
+    "relaxations": [],
+    "recalled": 297,
+    "eligible": 9,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 24,
+    "screening_status": "passed"
+   }
+  },
+  "baseline": {
+   "status": "generated",
+   "papers": 12,
+   "ids": [
+    "ZEJCOENFQUJDQUE",
+    "ZEJCOENFRUdCODg",
+    "ZEJCOENGNzdBRUY",
+    "ZEJCOENFRUdFR0E",
+    "ZEJCOENFRUVHRzg",
+    "ZEJCOENFRUVHRkc",
+    "ZEJCOENFRUdFQUc",
+    "ZEJCOENFRjc4Qjk",
+    "ZEJCOENFRjdER0E",
+    "ZEJCOENFRUVCRjg",
+    "ZEJCOENFRUVDQzk",
+    "ZEJCOENFRUdCQTc"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 climate change · 时间 2022–2026 · 研究概况",
+    "community": "纯 Acemap 基线",
+    "expand": "学术检索词 climate change",
+    "retrieve": "召回 50 篇 → 保留 12 篇"
+   },
+   "retrieval": {
+    "baseline": true,
+    "terms": [
+     "climate change"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [],
+    "relaxations": [],
+    "recalled": 50,
+    "eligible": 25,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 0,
+    "screening_status": "not_run"
+   }
+  },
+  "same_set": false,
+  "only_enhanced": [
+   "ZEJCOENFREE3REI",
+   "ZEJCOENFRUFDRkE",
+   "ZEJCOENFRUVCOUI",
+   "ZEJCOENFRUZGRjg",
+   "ZEJCOENFRUdHNzc"
+  ],
+  "only_baseline": [
+   "ZEJCOENFRUVCRjg",
+   "ZEJCOENFRUVDQzk",
+   "ZEJCOENFRUVHRkc",
+   "ZEJCOENFRUdCODg",
+   "ZEJCOENFRUdCQTc",
+   "ZEJCOENFRUdFQUc",
+   "ZEJCOENFRUdFR0E",
+   "ZEJCOENGNzdBRUY"
+  ],
+  "recall_gain_count": 5
+ }
+}

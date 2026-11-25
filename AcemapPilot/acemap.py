@@ -23,9 +23,15 @@ def snapshot_path(query, size, *, order_by=None):
     return ROOT / "data" / "responses" / f"{key}.json"
 
 
+class SnapshotMissing(ValueError):
+    """Replay requested a query that was never recorded."""
+
+
 def fetch(query, size=20, replay=False, save=True, *, order_by=None):
     path = snapshot_path(query, size, order_by=order_by)
     if replay:
+        if not path.exists():
+            raise SnapshotMissing(f"no snapshot for query={query!r} size={size} order_by={order_by!r}")
         return json.loads(path.read_text(encoding="utf-8"))["response"]["results"]
     params = {"keyword": query, "order": "desc", "page": 1, "size": size}
     if order_by:

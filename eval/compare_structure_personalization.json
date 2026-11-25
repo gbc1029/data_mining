@@ -1,0 +1,410 @@
+{
+ "expert": {
+  "with": {
+   "status": "generated",
+   "papers": 12,
+   "ids": [
+    "ZEJCOENFRUVHQ0M",
+    "ZEJCOEI5OENCODk",
+    "ZEJCOEJDRTlCRkI",
+    "ZEJCOEJDQUU5R0Q",
+    "ZEJCOEFGRUZDQ0M",
+    "ZEJCOEFGOTdDREE",
+    "ZEJCOEJBRTdERUQ",
+    "ZEJCOEJBRTdGN0U",
+    "ZEJCOEFHRUVCRUI",
+    "ZEJCOEFCODhBRTg",
+    "ZEJCOEFFR0Q3REE",
+    "ZEJCOENBN0JGQUY"
+   ],
+   "recommended": [
+    "ZEJCOEI5OENCODk",
+    "ZEJCOEJDRTlCRkI",
+    "ZEJCOEJDQUU5R0Q"
+   ],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "C12 地质学与地球物理（subfield）",
+    "expand": "学术检索词 plate tectonics、volcanology、volcanism、lava、volcano、structural basin",
+    "retrieve": "召回 289 篇 → 检查 24 篇相关性 → 保留 12 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "plate tectonics",
+     "volcanology",
+     "volcanism",
+     "lava",
+     "volcano",
+     "structural basin"
+    ],
+    "interests": [
+     12
+    ],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "subfield",
+     "niche"
+    ],
+    "relaxations": [],
+    "recalled": 289,
+    "eligible": 24,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 24,
+    "screening_status": "passed"
+   }
+  },
+  "without": {
+   "status": "generated",
+   "papers": 12,
+   "ids": [
+    "ZEJCOENFRUVHQ0M",
+    "ZEJCOENFREU5Rzk",
+    "ZEJCOEFCODhBRTg",
+    "ZEJCOENFREVDNzk",
+    "ZEJCOEI5OENCODk",
+    "ZEJCOEFFR0Q3REE",
+    "ZEJCOEI5OENERjk",
+    "ZEJCOENDQ0dCRzg",
+    "ZEJCOENBN0JGQUY",
+    "ZEJCOEM3RUU5QkY",
+    "ZEJCOEJDRTlCRkI",
+    "ZEJCOENFRUVGRTk"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "C12 地质学与地球物理（subfield）",
+    "expand": "学术检索词 plate tectonics、volcanology、volcanism、lava、volcano、structural basin",
+    "retrieve": "召回 289 篇 → 检查 24 篇相关性 → 保留 12 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "plate tectonics",
+     "volcanology",
+     "volcanism",
+     "lava",
+     "volcano",
+     "structural basin"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "subfield",
+     "niche"
+    ],
+    "relaxations": [],
+    "recalled": 289,
+    "eligible": 24,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 24,
+    "screening_status": "passed"
+   }
+  },
+  "same_set": false,
+  "same_order": false,
+  "only_with": [
+   "ZEJCOEFGOTdDREE",
+   "ZEJCOEFGRUZDQ0M",
+   "ZEJCOEFHRUVCRUI",
+   "ZEJCOEJBRTdERUQ",
+   "ZEJCOEJBRTdGN0U",
+   "ZEJCOEJDQUU5R0Q"
+  ],
+  "only_without": [
+   "ZEJCOEI5OENERjk",
+   "ZEJCOEM3RUU5QkY",
+   "ZEJCOENDQ0dCRzg",
+   "ZEJCOENFREU5Rzk",
+   "ZEJCOENFREVDNzk",
+   "ZEJCOENFRUVGRTk"
+  ]
+ },
+ "intermediate": {
+  "with": {
+   "status": "generated",
+   "papers": 10,
+   "ids": [
+    "ZEJCOENBQkdFQkI",
+    "ZEJCOENCRTdGRkU",
+    "ZEJCOENFREU5Rzk",
+    "ZEJCOEM4R0VGQ0I",
+    "ZEJCOENEOEQ4Qjc",
+    "ZEJCOENFOTdBRUU",
+    "ZEJCOEJFRkFHQzg",
+    "ZEJCOEM5OUJEN0Y",
+    "ZEJCOEI3N0VEREU",
+    "ZEJCOEM5REI4Rzg"
+   ],
+   "recommended": [
+    "ZEJCOENBQkdFQkI",
+    "ZEJCOENCRTdGRkU",
+    "ZEJCOENFREU5Rzk"
+   ],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "C12 地质学与地球物理（subfield）",
+    "expand": "学术检索词 plate tectonics、lithosphere、subduction、mantle",
+    "retrieve": "召回 193 篇 → 检查 20 篇相关性 → 保留 10 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "plate tectonics",
+     "lithosphere",
+     "subduction",
+     "mantle"
+    ],
+    "interests": [
+     12
+    ],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "basic",
+     "subfield"
+    ],
+    "relaxations": [],
+    "recalled": 193,
+    "eligible": 20,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 20,
+    "screening_status": "passed"
+   }
+  },
+  "without": {
+   "status": "generated",
+   "papers": 10,
+   "ids": [
+    "ZEJCOENCRTdGRkU",
+    "ZEJCOENFREU5Rzk",
+    "ZEJCOEM4R0VGQ0I",
+    "ZEJCOENEOEQ4Qjc",
+    "ZEJCOENFOTdBRUU",
+    "ZEJCOEJFRkFHQzg",
+    "ZEJCOEM5OUJEN0Y",
+    "ZEJCOEI3N0VEREU",
+    "ZEJCOEM5REI4Rzg",
+    "ZEJCOENBRkQ3RTk"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "C12 地质学与地球物理（subfield）",
+    "expand": "学术检索词 plate tectonics、lithosphere、subduction、mantle",
+    "retrieve": "召回 193 篇 → 检查 20 篇相关性 → 保留 10 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "plate tectonics",
+     "lithosphere",
+     "subduction",
+     "mantle"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "basic",
+     "subfield"
+    ],
+    "relaxations": [],
+    "recalled": 193,
+    "eligible": 20,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 20,
+    "screening_status": "passed"
+   }
+  },
+  "same_set": false,
+  "same_order": false,
+  "only_with": [
+   "ZEJCOENBQkdFQkI"
+  ],
+  "only_without": [
+   "ZEJCOENBRkQ3RTk"
+  ]
+ },
+ "novice": {
+  "with": {
+   "status": "generated",
+   "papers": 5,
+   "ids": [
+    "ZEJCOENCRTdGRkU",
+    "ZEJCOEJFRkFHQzg",
+    "ZEJCOEM5OUJEN0Y",
+    "ZEJCOEM4QkVEOUM",
+    "ZEJCOENDRjlEREE"
+   ],
+   "recommended": [
+    "ZEJCOENCRTdGRkU",
+    "ZEJCOEJFRkFHQzg",
+    "ZEJCOEM5OUJEN0Y"
+   ],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "C12 地质学与地球物理（subfield）",
+    "expand": "学术检索词 plate tectonics、lithosphere、subduction",
+    "retrieve": "召回 147 篇 → 检查 16 篇相关性 → 保留 5 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "plate tectonics",
+     "lithosphere",
+     "subduction"
+    ],
+    "interests": [
+     12
+    ],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "basic"
+    ],
+    "relaxations": [],
+    "recalled": 147,
+    "eligible": 5,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 16,
+    "screening_status": "passed"
+   }
+  },
+  "without": {
+   "status": "generated",
+   "papers": 5,
+   "ids": [
+    "ZEJCOENCRTdGRkU",
+    "ZEJCOEJFRkFHQzg",
+    "ZEJCOEM5OUJEN0Y",
+    "ZEJCOEM4QkVEOUM",
+    "ZEJCOENDRjlEREE"
+   ],
+   "recommended": [],
+   "years": [
+    2025,
+    2025,
+    2025,
+    2025,
+    2025
+   ],
+   "warnings": [],
+   "steps": {
+    "intent": "主题 plate tectonics · 时间 2022–2026 · 研究概况",
+    "community": "C12 地质学与地球物理（subfield）",
+    "expand": "学术检索词 plate tectonics、lithosphere、subduction",
+    "retrieve": "召回 147 篇 → 检查 16 篇相关性 → 保留 5 篇"
+   },
+   "retrieval": {
+    "baseline": false,
+    "terms": [
+     "plate tectonics",
+     "lithosphere",
+     "subduction"
+    ],
+    "interests": [],
+    "year_range": [
+     2022,
+     2026
+    ],
+    "tiers": [
+     "basic"
+    ],
+    "relaxations": [],
+    "recalled": 147,
+    "eligible": 5,
+    "failed_terms": [],
+    "order_by": "publication_date",
+    "screened": 16,
+    "screening_status": "passed"
+   }
+  },
+  "same_set": true,
+  "same_order": true,
+  "only_with": [],
+  "only_without": []
+ }
+}

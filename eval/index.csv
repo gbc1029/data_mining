@@ -1,0 +1,34 @@
+snapshot,qid,mode,term,size,order_by,n,status
+0b18930d8149481070e9.json,I3,intermediate,climate model,50,publication_date,50,200
+1296905f8c8d1e821ada.json,shared,,retrieval augmented generation,50,,50,200
+1309af305f0d2f759cd6.json,E4,expert,production,50,publication_date,50,200
+23c7fb0961d3236f5055.json,E4,expert,sustainable development,50,publication_date,50,200
+2479999fa116f857eb59.json,I3,intermediate,climate change,50,publication_date,50,200
+313b65c5d7468f90a3b3.json,E1,expert,volcanology,50,publication_date,50,200
+38e8a9c638440638bb2c.json,N4,novice,climate change,50,,50,200
+4489ec23ddca1180656b.json,E1,expert,volcano,50,publication_date,50,200
+46020a3878044993e95b.json,E4,expert,quality,50,publication_date,50,200
+4b66f3f87625b0ecfb96.json,I2,intermediate,rag,50,publication_date,50,200
+554ebfae4fe9c1e016e4.json,N4,novice,climate model,50,,50,200
+6a6797b0a94547b59b57.json,E1,expert,structural basin,50,publication_date,50,200
+6a9dfde5fe6f81dc5bef.json,E4,expert,pollution,50,publication_date,50,200
+6b45fca1938ff4769319.json,N2,novice,retrieval-augmented generation,50,,50,200
+715ea3e5283cc5dbef97.json,I4,intermediate,subduction zone,50,publication_date,50,200
+72b8cea807d35f7b0c26.json,N4,novice,biogeochemical cycle,50,,50,200
+795b439d8763a517c55a.json,E1,expert,volcanism,50,publication_date,50,200
+7d89bc0cdf1b9249455a.json,I5,intermediate,graph neural network,50,publication_date,50,200
+96662a1f382ca145d52b.json,E4,expert,consumption,50,publication_date,50,200
+a780f110aea40121b07e.json,E5,expert,large language model,50,publication_date,50,200
+b776cd304c9c9c72cf1e.json,N4,novice,climate change fundamental concepts,50,,50,200
+b8d88d965906e85c54d7.json,shared,,RAG,50,,50,200
+bc644b405e0073b5ff3a.json,I1,intermediate,subduction,50,publication_date,50,200
+bf7826b2b8e962cbbcdb.json,I1,intermediate,plate tectonics,50,publication_date,50,200
+c1aeaa7f51afae67be52.json,N1,novice,lithosphere,50,,50,200
+c7519cd6dc9b96bcb0c7.json,I3,intermediate,global warming,50,publication_date,50,200
+c87a697b11a99bac5528.json,E1,expert,lava,50,publication_date,50,200
+db033368b4a54e5c9754.json,I3,intermediate,biogeochemical cycle,50,publication_date,50,200
+e23a6f44f7b47ec6178c.json,I1,intermediate,lithosphere,50,publication_date,50,200
+e90bcbf05833d833f9e7.json,I1,intermediate,mantle,50,publication_date,50,200
+f40a735bb0349447aead.json,N5,novice,plate tectonics,50,,50,200
+f49f0b633e0a73ac9187.json,N1,novice,subduction,50,,50,200
+fcd45f7cae6e03616f20.json,N3,novice,rift,50,,50,200

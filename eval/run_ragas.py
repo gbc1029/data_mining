@@ -40,11 +40,14 @@ def build_llm():
     client = openai.AsyncOpenAI(base_url=DASHSCOPE_URL, api_key=key)
     # ragas defaults to max_tokens=1024; structured metric outputs are routinely
     # truncated at that limit (IncompleteOutputException / finish_reason=length).
-    # kimi-k3 rejects temperature/top_p; pass None so ragas omits them.
+    # kimi-k3 only accepts temperature=0 (other values, including 0.01 and
+    # top_p overrides, are rejected). Explicit 0 gives deterministic scoring;
+    # omitting the parameter lets the service apply a non-zero default and
+    # causes score drift between identical runs.
     # extra_body is the OpenAI-SDK-compatible way to reach DashScope's
     # enable_thinking switch without adding an unsupported top-level kwarg.
     return llm_factory(EVAL_MODEL, provider="openai", client=client, max_tokens=4096,
-                       temperature=None, top_p=None,
+                       temperature=0, top_p=None,
                        extra_body={"enable_thinking": False})
 
 

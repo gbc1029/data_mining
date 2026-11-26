@@ -1,6 +1,6 @@
 """Structural comparison without any LLM call.
 
-Patches select_relevant_evidence to accept all candidates and _conclude to a
+Patches rank_relevant_evidence to accept all candidates and _conclude to a
 placeholder, so differences come only from retrieval, filtering and ranking.
 Useful while the DashScope free quota is exhausted. Does NOT measure answer
 quality or LLM-based relevance -- results are structural only.
@@ -25,13 +25,12 @@ def replay(term, size, *, order_by=None):
     return fetch(term, size=size, replay=True, order_by=order_by)
 
 
-def accept_all(question, topic, evidence, *, overview=False):
-    # The real function converts 1-based JSON ids to 0-based indices.
-    return set(range(len(evidence)))
+def accept_all(question, topic, evidence):
+    return [], list(range(len(evidence)))
 
 
 def run_without_llm(question, mode, interests=(), baseline=False):
-    with mock.patch.object(rag_system, "select_relevant_evidence", accept_all), \
+    with mock.patch.object(rag_system, "rank_relevant_evidence", accept_all), \
          mock.patch.object(rag_system, "_conclude", lambda *a, **kw: "（占位，未调用 LLM）"):
         result = rag_system.enhanced_retrieve(
             question, mode=mode, interests=list(interests), baseline=baseline, paper_source=replay)

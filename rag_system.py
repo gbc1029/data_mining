@@ -12,11 +12,13 @@ import requests
 import graph_api
 from AcemapPilot.acemap import SnapshotMissing, fetch
 from evidence_index import get_index
+from evidence_ranking import rerank_cached
+from graph_evidence import graph_focus, graph_shortlist
 from intent_parser import parse_intent
 from modes import DEFAULT_MODE, resolve
 from rag_generation import (
     INSUFFICIENT_EVIDENCE, GenerationError, generate_conclusion, resolve_search_topic,
-    select_relevant_evidence, translate_topic,
+    rank_relevant_evidence, translate_topic,
 )
 
 
@@ -95,9 +97,32 @@ def _failure_reason(exc):
     return type(exc).__name__
 
 
-def _collect(terms, paper_source, order_by):
+def _anchors_topic(row, anchor):
+    fields = [row.get("title"), row.get("display_name"), row.get("abstract")]
+    fields.extend(concept.get("display_name") for concept in (row.get("concepts") or [])[:6]
+                  if isinstance(concept, dict))
+    return any(isinstance(field, str) and anchor.search(field) for field in fields)
+
+
+def _supported_expansion(rows, anchor, term, years=None):
+    neighbor = _topic_anchor(term)
+    papers = {str(row["id"]) for row in rows[:10]
+              if isinstance(row, dict) and row.get("id")
+              and (not years or isinstance(row.get("publication_year"), int)
+                   and years[0] <= row["publication_year"] <= years[1])
+              and _anchors_topic(row, anchor) and _anchors_topic(row, neighbor)}
+    return len(papers) >= 2
+
+
+def _collect(terms, paper_source, order_by, *, seed=None, anchor=None, expansion_terms=(), years=None):
     papers, failed, reasons = {}, [], {}
+    seed_rows = []
+    issued = []
     for term in terms:
+        check_topic = anchor is not None and term.casefold() in expansion_terms
+        if check_topic and seed_rows and not _supported_expansion(seed_rows, anchor, term, years):
+            continue
+        issued.append(term)
         try:
             rows = paper_source(term, PAGE_SIZE, order_by=order_by)
             if not isinstance(rows, list):
@@ -106,17 +131,21 @@ def _collect(terms, paper_source, order_by):
             failed.append(term)
             reasons[term] = _failure_reason(exc)
             continue
+        if term == seed:
+            seed_rows = rows
         for row in rows:
             if not isinstance(row, dict) or not row.get("id"):
+                continue
+            if check_topic and not _anchors_topic(row, anchor):
                 continue
             paper_id = str(row["id"])
             existing = papers.setdefault(paper_id, row)
             if not existing.get("abstract") and row.get("abstract"):
                 papers[paper_id] = row
-    if terms and len(failed) == len(terms):
+    if issued and len(failed) == len(issued):
         detail = "；".join(f"{term}：{reasons[term]}" for term in failed[:3])
         raise SearchError(f"Acemap 暂未返回有效响应，请稍后重试。（{detail}）")
-    return list(papers.values()), failed
+    return list(papers.values()), failed, issued
 
 
 def _paper(row, use_graph):
@@ -191,7 +220,31 @@ def _evidence_shortlist(papers, passages, cfg, year):
     return ids[:2 * cfg["top_k"]]
 
 
-def _rank(papers, passages, cfg, intent, year, baseline, interests, links, anchor):
+def _bridge_shortlist(question, topic, candidates, passages, shortlist, cfg, year):
+    frozen = set(shortlist)
+    order = list(dict.fromkeys([*shortlist, *list(passages)[:40]]))
+    if len(order) <= len(shortlist):
+        return shortlist, []
+    graph = _graph()
+    focus = graph_focus(topic, question, graph)
+    if focus is None:
+        return shortlist, []
+    by_id = {paper["id"]: paper for paper in candidates}
+    _, proposals = graph_shortlist(
+        order, by_id, graph=graph, topic_anchor=_topic_anchor(graph_api.clean_term(focus)),
+        make_anchor=_topic_anchor, mode=cfg["mode"], limit=len(shortlist),
+    )
+
+    def cohort(pid):
+        published = by_id[pid]["year"]
+        return None if not published else published >= year - 4
+
+    bridges = [p for p in proposals if not cfg["quota"] or cohort(p["paper_id"]) == cohort(p["replaced_id"])]
+    replacements = {p["replaced_id"]: p["paper_id"] for p in bridges}
+    return [replacements.get(pid, pid) for pid in shortlist], bridges
+
+
+def _rank(papers, passages, cfg, intent, year, baseline, interests, links, anchor, *, direct_ids=None):
     by_id = {paper["id"]: paper for paper in papers}
     if baseline:
         return [paper for paper in papers if paper["id"] in passages][:cfg["top_k"]]
@@ -207,14 +260,16 @@ def _rank(papers, passages, cfg, intent, year, baseline, interests, links, ancho
         return any(hint in title_and_url for hint in hints)
 
     def pick(pool, sort, limit):
-        # The evidence shortlist already bounds this pool. Keep semantic order on ties.
         metric = (lambda p: p["cited_by_count"]) if sort == "cited" else (lambda p: p["year"] or 0)
+        strong = mentions_topic if direct_ids is None else lambda paper: paper["id"] in direct_ids
         chosen = sorted(
             pool,
-            key=lambda p: (mentions_topic(p), matches_requested_type(p), _affinity(p, interests, links), metric(p)),
+            key=lambda p: (strong(p), matches_requested_type(p), _affinity(p, interests, links), metric(p)),
             reverse=True,
         )[:limit]
-        return sorted(chosen, key=metric, reverse=True)
+        if direct_ids is None:
+            return sorted(chosen, key=metric, reverse=True)
+        return sorted(chosen, key=lambda p: (strong(p), metric(p)), reverse=True)
 
     if cfg["sort"] != "mixed":
         return pick(semantic_order, cfg["sort"], cfg["top_k"])
@@ -224,11 +279,13 @@ def _rank(papers, passages, cfg, intent, year, baseline, interests, links, ancho
     old = [p for p in semantic_order if 0 < (p["year"] or 0) < recent_since]
     chosen = pick(new, "year", cfg["quota"]["new"]) + pick(old, "cited", cfg["quota"]["old"])
     remaining = cfg["top_k"] - len(chosen)
-    if not remaining:
-        return chosen
-    selected_ids = {paper["id"] for paper in chosen}
-    overflow = [p for p in semantic_order if p["id"] not in selected_ids]
-    return chosen + pick(overflow, "year", remaining)
+    if remaining:
+        selected_ids = {paper["id"] for paper in chosen}
+        overflow = [p for p in semantic_order if p["id"] not in selected_ids]
+        chosen += pick(overflow, "year", remaining)
+    if direct_ids is not None:
+        chosen.sort(key=lambda p: p["id"] in direct_ids, reverse=True)
+    return chosen
 
 
 def _cite(papers, passages, interests, links):
@@ -285,13 +342,16 @@ def enhanced_retrieve(question, mode=DEFAULT_MODE, interests=(), *, baseline=Fal
     overview = intent.is_overview
     translate = bool(re.search(r"[\u3400-\u9fff]", topic))
     plan_topic = not conflict and (intent.needs_topic_resolution or (overview and translate))
+    warnings = []
     try:
         if plan_topic:
             topic, qualified = resolve_search_topic(question, overview=overview)
         elif not conflict and translate:
             topic = translate_topic(topic)
     except GenerationError as exc:
-        raise SearchError(f"暂时无法提取检索主题。可以先直接输入研究主题。{exc}") from exc
+        if not plan_topic or not re.fullmatch(r"[A-Z][A-Z0-9]{1,9}", topic):
+            raise SearchError(f"暂时无法提取检索主题。可以先直接输入研究主题。{exc}") from exc
+        warnings.append(f"缩写暂未展开，已按原词检索。{exc}")
     if not topic:
         raise SearchError("请在问题中写明研究主题。")
 
@@ -300,21 +360,25 @@ def enhanced_retrieve(question, mode=DEFAULT_MODE, interests=(), *, baseline=Fal
     expansion = _graph().search_terms(topic, cfg["mode"])[1:] if reliable else []
     base = graph_api.clean_term(topic) or topic
     graph_terms = [graph_api.clean_term(term) for term in expansion]
+    distinct_query = bool(qualified and graph_api.clean_term(qualified) != base)
     if baseline:
         search_terms = [base if overview else qualified or base]
-    elif overview and plan_topic:
-        search_terms = [base, *graph_terms] if graph_terms else [base, qualified]
+    elif distinct_query:
+        search_terms = [base, qualified] if overview else [qualified, base]
     else:
-        search_terms = [qualified, base, *graph_terms]
-    terms = list({term.casefold(): term for term in search_terms if term}.values())
+        search_terms = [base, *graph_terms]
+    planned = list({term.casefold(): term for term in search_terms if term}.values())
     semantic_query = topic if overview else qualified or (topic if re.search(r"[\u3400-\u9fff]", question) else question)
     anchor = _topic_anchor(base)
-    scope = {item["community_id"] for term in [base, *graph_terms] if (item := _locate(term))
-             and item["match"] in RELIABLE_MATCH} if reliable and not overview else set()
-
-    warnings = []
     order_by = "publication_date" if years and years[1] >= year - 1 else None
-    rows, failed = _collect([] if conflict else terms, paper_source or _live_papers, order_by)
+    expansion_terms = set(graph_terms) - {base}
+    if baseline or distinct_query:
+        expansion_terms.clear()
+    rows, failed, terms = _collect([] if conflict else planned, paper_source or _live_papers, order_by,
+                                   seed=base, anchor=anchor, expansion_terms=expansion_terms, years=years)
+    active_neighbors = [term for term in terms if term.casefold() in expansion_terms and term not in failed]
+    scope = {item["community_id"] for term in [base, *active_neighbors] if (item := _locate(term))
+             and item["match"] in RELIABLE_MATCH} if reliable and not overview else set()
     if conflict:
         warnings.append("问题指定的时间与当前模式没有交集。")
     if failed:
@@ -332,15 +396,20 @@ def enhanced_retrieve(question, mode=DEFAULT_MODE, interests=(), *, baseline=Fal
         ) from exc
     screened_count = 0
     screening_status = "not_run"
+    direct_ids = None
+    bridges = []
     if passages and not baseline:
-        shortlist = _evidence_shortlist(candidates, passages, cfg, year)
-        screened_count = len(shortlist)
         titles = {paper["id"]: paper["title"] for paper in candidates}
+        passages = rerank_cached(question, topic, titles, passages)
+        shortlist = _evidence_shortlist(candidates, passages, cfg, year)
+        shortlist, bridges = _bridge_shortlist(question, topic, candidates, passages, shortlist, cfg, year)
+        screened_count = len(shortlist)
         evidence = [(titles[paper_id], passages[paper_id]) for paper_id in shortlist]
         try:
-            selected = select_relevant_evidence(question, topic, evidence, overview=overview)
-            accepted = {shortlist[index] for index in selected}
-            passages = {paper_id: context for paper_id, context in passages.items() if paper_id in accepted}
+            direct, partial = rank_relevant_evidence(question, topic, evidence)
+            direct_ids = {shortlist[index] for index in direct}
+            accepted = [shortlist[index] for index in direct + partial]
+            passages = {paper_id: passages[paper_id] for paper_id in accepted}
             screening_status = "passed"
         except GenerationError as exc:
             passages = {}
@@ -349,13 +418,14 @@ def enhanced_retrieve(question, mode=DEFAULT_MODE, interests=(), *, baseline=Fal
 
     candidates = [paper for paper in candidates if paper["id"] in passages]
     eligible, tiers, changes = candidates, [], []
-    if candidates and reliable:
+    if candidates and not baseline:
         eligible, tiers, changes = _eligible(candidates, cfg, scope)
         eligible_ids = {paper["id"] for paper in eligible}
         passages = {paper_id: context for paper_id, context in passages.items() if paper_id in eligible_ids}
     related = _graph().expand(topic, mode="expert") if interests and reliable else []
     links = {match["key"] for term in related if (match := _locate(term))}
-    ranked = _rank(eligible, passages, cfg, intent, year, baseline, interests, links, anchor)
+    ranked = _rank(eligible, passages, cfg, intent, year, baseline, interests, links, anchor,
+                   direct_ids=direct_ids)
     papers = _cite(ranked, passages, interests, links)
     generation_status = "insufficient_evidence"
     if papers:
@@ -387,6 +457,11 @@ def enhanced_retrieve(question, mode=DEFAULT_MODE, interests=(), *, baseline=Fal
         community_detail = f"C{info['community_id']:02d} {info['community_label']}（{info['tier']}）"
     screening_detail = f" → 检查 {screened_count} 篇相关性" if screened_count else ""
     retrieve_detail = f"召回 {len(rows)} 篇{screening_detail} → 保留 {len(papers)} 篇"
+    if bridges:
+        final_ids = {paper["id"] for paper in papers}
+        bridges = [dict(bridge, retained=bridge["paper_id"] in final_ids) for bridge in bridges]
+        kept = sum(bridge["retained"] for bridge in bridges)
+        retrieve_detail += f" · 图补选 {len(bridges)} 篇，入选 {kept} 篇"
     if changes:
         retrieve_detail += " · 已放宽 tier：" + " → ".join([" + ".join(cfg["tier"]), *changes])
     steps = [
@@ -405,5 +480,6 @@ def enhanced_retrieve(question, mode=DEFAULT_MODE, interests=(), *, baseline=Fal
                       "interests": sorted(interests), "year_range": years, "tiers": tiers,
                       "relaxations": changes, "recalled": len(rows), "eligible": len(eligible),
                       "failed_terms": failed, "order_by": order_by,
-                      "screened": screened_count, "screening_status": screening_status},
+                      "screened": screened_count, "screening_status": screening_status,
+                      "graph_bridges": bridges},
     }

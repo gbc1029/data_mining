@@ -2,8 +2,19 @@ const workspace = element.closest('#scholar-workspace');
 const form = element.querySelector('#scholar-search');
 const question = form.querySelector('#scholar-question');
 const search = form.querySelector('#search-button');
+const searchText = search.querySelector('span:last-child');
 const clear = form.querySelector('#clear-question');
 const interests = new Map();
+let previousResult;
+
+function resultContent() {
+    return workspace.querySelector('#scholar-result .scholar-empty, #scholar-result .scholar-results, #scholar-result .scholar-status');
+}
+
+function setSearching(busy) {
+    search.disabled = busy;
+    searchText.textContent = busy ? '检索中…' : '搜索';
+}
 
 function syncQuery() {
     clear.hidden = !question.value;
@@ -90,20 +101,25 @@ form.addEventListener('submit', (event) => {
         question.reportValidity();
         return;
     }
-    trigger('submit', {
-        question: text,
-        mode: workspace.querySelector('#reader-mode').value,
-        interests: Array.from(interests.keys(), Number),
-    });
+    previousResult = resultContent();
+    setSearching(true);
+    try {
+        Promise.resolve(trigger('submit', {
+            question: text,
+            mode: workspace.querySelector('#reader-mode').value,
+            interests: Array.from(interests.keys(), Number),
+        })).catch(() => setSearching(false));
+    } catch (error) {
+        setSearching(false);
+        throw error;
+    }
 });
 
-const searchText = search.querySelector('span:last-child');
 const observer = new MutationObserver(() => {
     if (!workspace.isConnected) return observer.disconnect();
-    const busy = !!workspace.querySelector('#scholar-result [data-search-pending]');
-    if (search.disabled !== busy) {
-        search.disabled = busy;
-        searchText.textContent = busy ? '检索中…' : '搜索';
+    const current = resultContent();
+    if (search.disabled && current && current !== previousResult && !current.hasAttribute('data-search-pending')) {
+        setSearching(false);
     }
 });
 observer.observe(workspace, { childList: true, subtree: true });

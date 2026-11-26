@@ -24,7 +24,7 @@ _YEAR_RANGE = re.compile(
 )
 _YEAR_BOUND = re.compile(
     rf"\b(since|after|before|until|through|in)\s+({_YEAR})\b"
-    rf"|(?:[自从在于]\s*)?(?<!\d)({_YEAR})\s*年\s*(以来|之后|以前|之前|起|后|前)?",
+    rf"|(?:[自从在于]\s*)?(?<!\d)({_YEAR})\s*年\s*(及以后|以来|以后|之后|以前|之前|起|后|前)?",
     re.IGNORECASE,
 )
 _NUMBERS = {
@@ -46,7 +46,7 @@ _PAPER_TYPES = (
     ("meta_analysis", re.compile(r"\bmeta[- ]analys(?:is|es)\b|荟萃分析|元分析", re.I)),
     ("survey", re.compile(
         r"\bsurveys?\s+(?:papers?|on|of|about)\b|\b(?:systematic|literature)\s+reviews?\b"
-        r"|\breview\s+(?:articles?|papers?)\b|综述|回顾性综述",
+        r"|\breviews?\s+(?:articles?|papers?|of|on|about)\b|综述|回顾性综述",
         re.I,
     )),
     ("tutorial", re.compile(r"\btutorials?\b|教程|入门资料", re.I)),
@@ -54,8 +54,9 @@ _PAPER_TYPES = (
 )
 _ENGLISH_REQUEST = re.compile(
     r"^(?:(?:please|can you|could you)\s+)?"
-    r"(?:what (?:is|are|were)|how (?:does|do|can)|find me|find|show me|"
-    r"give me|recommend|list|tell me about|explain|compare)\s+"
+    r"(?:what (?:is|are|were)|how (?:does|do|can)|find me|find|show(?: me)?|"
+    r"give(?: me)?|provide(?: me)?(?: with)?|summari[sz]e|describe|"
+    r"recommend|list|tell me about|explain|compare)\s+"
     r"(?:(?:some|the|a|an)\s+)?",
     re.IGNORECASE,
 )
@@ -168,9 +169,9 @@ def _year_window(text: str, year: int) -> tuple[tuple[int, int] | None, str]:
     if match:
         operator = (match[1] or match[4] or "").lower()
         boundary = int(match[2] or match[3])
-        if operator in {"after", "之后", "后"}:
+        if operator in {"after", "以后", "之后", "后"}:
             window = (boundary + 1, year)
-        elif operator in {"since", "以来", "起"}:
+        elif operator in {"since", "及以后", "以来", "起"}:
             window = (boundary, year)
         elif operator in {"before", "以前", "之前", "前"}:
             window = (1, boundary - 1)
@@ -184,7 +185,8 @@ def _year_window(text: str, year: int) -> tuple[tuple[int, int] | None, str]:
 
 
 def _without(text: str, match: re.Match) -> str:
-    return " ".join(f"{text[:match.start()]} {text[match.end():]}".split())
+    before = re.sub(r"\b(?:published|released|appearing)\s*$", "", text[:match.start()], flags=re.I)
+    return " ".join(f"{before} {text[match.end():]}".split())
 
 
 def _topic_query(topic: str, *, has_year: bool) -> tuple[str, str | None, bool]:
@@ -260,6 +262,6 @@ def parse_intent(question: str, *, current_year: int | None = None) -> Intent:
         for candidate, qualifier, pending in candidates
     )
     scoped = query or _SCOPED_TOPIC.search(topic) or re.search(r"\bcompare\b", search_text, re.I)
-    if year_range is None and not scoped:
-        unresolved |= is_overview or _suspected_abbreviation(topic)
+    if not scoped:
+        unresolved |= _suspected_abbreviation(topic) or (year_range is None and is_overview)
     return Intent(topic, year_range, paper_type, query, unresolved, is_overview)

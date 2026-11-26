@@ -2,6 +2,8 @@
 
 应用从自然语言问题出发，按需从 Acemap 取论文，用 A 的概念图和三档配置检索，再根据实际摘要片段生成带编号的结论。
 
+先导资料中可复用的请求入口是 `AcemapPilot/acemap.py` 的 `fetch()`。交接源未找到指南中点名的 `acemap_enhanced_search.py` 和 `IntentParser` 类，模块 B 使用本包的 `intent_parser.py` 输出主题、时间与论文类型。
+
 ## 解压后启动
 
 将交接包完整解压到 E 盘，在包含 `gradio_app.py` 的目录打开 PowerShell。包内带有前端资源、Acemap 请求客户端和运行所需的 A 图数据与三档配置。下面的安装组合已在 Windows x64 与 CPython 3.11 上验证。首次安装需要 `uv`，以及能访问 Python 包源和模型下载服务的网络。
@@ -39,6 +41,12 @@ if (-not $env:DASHSCOPE_API_KEY) {
 
 默认生成模型是 DashScope 的 `qwen3.8-flash`，从进程环境读 `DASHSCOPE_API_KEY`。可通过 `GRAPHRAG_LLM_BASE_URL`、`GRAPHRAG_LLM_MODEL`、`GRAPHRAG_LLM_API_KEY` 指定兼容服务。兼容地址填到 `/v1`，程序会自行拼接 `/chat/completions`。已完成相关性筛选的论文与证据片段在结论生成失败时仍会显示。
 
+英文查询可选本地交叉编码重排。安装后如需启用，在上述同一个 PowerShell 窗口执行一次以下命令，模型会写入已配置的 `HF_HOME`。
+
+```powershell
+.\venv\Scripts\python.exe -c "from huggingface_hub import snapshot_download; from evidence_ranking import CROSS_MODEL,CROSS_REVISION; snapshot_download(CROSS_MODEL,revision=CROSS_REVISION,allow_patterns=['config.json','tokenizer*','special_tokens_map.json','vocab.txt','model.safetensors'])"
+```
+
 ## 给模块 C 的评估入口
 
 ```python
@@ -51,13 +59,15 @@ baseline = enhanced_retrieve(question, mode="expert", baseline=True)
 
 - `conclusion` 是答案，`contexts` 是实际传给生成模型的摘要片段。`papers` 包含顺序一致的引文编号、Acemap ID、链接、年份、上下文和推荐标记。
 - `generation_status` 区分已生成、证据不足和服务不可用。`retrieval` 记录检索词、年份、兴趣、tier、实际放宽步骤和失败的 Acemap 查询。
-- 普通查询先按语义选取最多 `2 × top_k` 篇，批量核对其标题和实际摘要片段是否能支持原问题，再按模式和兴趣排序。`retrieval.screened` 与 `screening_status` 记录筛选尝试和状态。筛选服务失败时只显示状态提示。
+- 普通查询先按语义选取最多 `2 × top_k` 篇。Qwen 在同一批复核中区分直接证据与部分证据，按原问题的约束排序。直接证据优先，档位的年限、tier 和新旧配额参与选择，兴趣继续参与排序和推荐。`retrieval.screened` 与 `screening_status` 记录复核状态。复核失败时提示状态。
+- 若本地缓存中已有固定版本的 `cross-encoder/ms-marco-MiniLM-L6-v2`，先用它为英文问题重排最多 40 个摘要片段。其他查询和无权重缓存的环境使用原 MiniLM 候选顺序。整理检索词和生成答案的 API 流程仍按原入口执行。
+- 图证据补选在原批次内完成。每次最多换入两篇，仍用原问题一次批量复核。`retrieval.graph_bridges` 记录概念边、支持该边的种子论文、换入与换出 ID，以及最终是否入选。
 - 简称和宽泛概况问题需要整理检索词时，使用一次短模型调用提取完整学术主题。概况题命中图中主题时按三档规则扩展，图外最多向 Acemap 发送两个检索词。回答概括证据覆盖的方面，明确的时间、比较对象和应用场景继续约束检索与作答。
 - `baseline=True` 使用单一检索词并保留 Acemap 顺序。问题的时间条件、模式年份限制、`top_k` 上限、摘要切分和生成设置与增强版本一致。与纯 Acemap 的对比衡量整条增强流程，包括相关性筛选。兴趣对照使用同一档位和相同候选来源，改变 `interests`。
 - 传入 `paper_source(keyword, size, *, order_by=None)` 可录制或重放同批 Acemap 响应。评估时按检索词、条数和排序参数保存原始候选，记录生成模型版本，将同一份响应重放给各版本。先导项目的快照以 20 或 30 篇为主，本版每词请求 50 篇，正式对照宜用同一次采集的数据。
 
-兴趣列表读取 A 提供的 `community_meta.csv`。兴趣只影响排序中的同分次序、扩展（link）邻居与推荐标记，不改变候选集合，也不影响结论提示词；引用列表保持当前档位规定的顺序，最多标记三篇与兴趣匹配的论文。
+兴趣列表读取 A 提供的 `community_meta.csv`。兴趣参与同一证据类别的入选排序，最多标记三篇与兴趣匹配的论文。
 
 访问约定：Acemap 会拒绝 `python-requests` 默认 User-Agent（返回 403），所有请求必须经 `AcemapPilot.acemap.fetch()`，它使用项目 UA `AI3602-PilotProject/1.0`。离线回放时快照按（检索词、size、order_by）哈希定位，缺失快照会被记为失败原因“离线快照缺失”，并写入 `warnings`，不会中断整个查询。
 
-Acemap 的论文类型字段在现有响应中不统一，综述、教程等需求以标题和链接偏好参与入选。近期窗口使用 Acemap 的发表日期排序召回，并在本地严格筛年份。中间档按最近五个自然年划分新旧论文，两组各取五篇，缺额由其余候选补齐。社区标签取 Acemap 概念列表前六项中、通过图精确或单复数匹配的实体。只由图扩展召回的论文需有原主题的概念或文本证据。证据不足时按 A 的顺序放宽社区 tier，显式年份始终生效。
+Acemap 的论文类型字段在现有响应中不统一，综述、教程等需求以标题和链接偏好参与入选。近期窗口使用 Acemap 的发表日期排序召回，并在本地严格筛年份。同一证据级别内，初学者按被引量排序，专家按年份排序。中间档按最近五个自然年划分新旧论文，两组各取五篇，缺额由其余候选补齐。社区标签取 Acemap 概念列表前六项中、通过图精确或单复数匹配的实体。只由图扩展召回的论文需有原主题的概念或文本证据。主题未可靠命中时，也使用论文自身的可靠标签判断档位。证据不足时按 A 的顺序放宽社区 tier，显式年份始终生效。
